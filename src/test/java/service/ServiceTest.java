@@ -59,24 +59,47 @@ class ServiceTest {
   }
 
   @Test
-  void addStudent_validStudent() {
+  void tc_1_addStudent_validStudentGroup() {
     Student student = new Student("123", "name", 12, "some@email.com");
-    try {
-      Student addedStudent = service.addStudent(student);
-      assertNull(addedStudent);
-    } catch(ValidationException e) {
-      fail();
-    }
+    assertNull(service.addStudent(student));
   }
 
   @Test
-  void addStudent_invalidStudent() {
+  void tc_2_addStudent_invalidStudentGroup() {
     Student student = new Student("123", "name", -552, "some@email.com");
-    try {
-      service.addStudent(student);
-      fail();
-    } catch(ValidationException ignored) {
+    assertThrows(ValidationException.class, ()->service.addStudent(student));
+  }
+  @Test
+  void tc_3_addStudent_validStudentName() {
+    Student student = new Student("123", "name", 12, "some@email.com");
+    assertNull(service.addStudent(student));
+  }
 
-    }
+  @Test
+  void tc_4_addStudent_invalidStudentName() {
+    Student student = new Student("123", "", 12, "some@email.com");
+    assertThrows(ValidationException.class, ()->service.addStudent(student));
+  }
+  @Test
+  void tc_5_addStudent_validStudentEmail() {
+    Student student = new Student("123", "name", 12, "some@email.com");
+    assertNull(service.addStudent(student));
+  }
+
+  @Test
+  void tc_6_addStudent_invalidStudentEmail() {
+    Student student = new Student("123", "name", 12, "");
+    assertThrows(ValidationException.class, ()->service.addStudent(student));
+  }
+  @Test
+  void tc_7_addStudent_validStudentId() {
+    Student student = new Student("123", "name", 12, "some@email.com");
+    assertNull(service.addStudent(student));
+  }
+
+  @Test
+  void tc_8_addStudent_invalidStudentId() {
+    Student student = new Student("", "name", 12, "some@email.com");
+    assertThrows(ValidationException.class, ()->service.addStudent(student));
   }
 }
