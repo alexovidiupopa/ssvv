@@ -60,7 +60,7 @@ class ServiceTest {
 
   @Test
   void tc_1_addStudent_validStudentGroup() {
-    Student student = new Student("123", "name", 12, "some@email.com");
+    Student student = new Student("123", "name", 100, "some@email.com");
     assertNull(service.addStudent(student));
   }
 
@@ -71,35 +71,53 @@ class ServiceTest {
   }
   @Test
   void tc_3_addStudent_validStudentName() {
-    Student student = new Student("123", "name", 12, "some@email.com");
+    Student student = new Student("123", "name", 100, "some@email.com");
     assertNull(service.addStudent(student));
   }
 
   @Test
   void tc_4_addStudent_invalidStudentName() {
-    Student student = new Student("123", "", 12, "some@email.com");
+    Student student = new Student("123", "", 100, "some@email.com");
     assertThrows(ValidationException.class, ()->service.addStudent(student));
   }
   @Test
   void tc_5_addStudent_validStudentEmail() {
-    Student student = new Student("123", "name", 12, "some@email.com");
+    Student student = new Student("123", "name", 100, "some@email.com");
     assertNull(service.addStudent(student));
   }
 
   @Test
   void tc_6_addStudent_invalidStudentEmail() {
-    Student student = new Student("123", "name", 12, "");
+    Student student = new Student("123", "name", 100, "");
     assertThrows(ValidationException.class, ()->service.addStudent(student));
   }
   @Test
   void tc_7_addStudent_validStudentId() {
-    Student student = new Student("123", "name", 12, "some@email.com");
+    Student student = new Student("123", "name", 100, "some@email.com");
     assertNull(service.addStudent(student));
   }
 
   @Test
   void tc_8_addStudent_invalidStudentId() {
-    Student student = new Student("", "name", 12, "some@email.com");
+    Student student = new Student("", "name", 100, "some@email.com");
+    assertThrows(ValidationException.class, ()->service.addStudent(student));
+  }
+
+  @Test
+  void tc_9_addStudent_validStudentGroup_BVA2() {
+    Student student = new Student("123", "name", 1, "some@email.com");
+    assertNull(service.addStudent(student));
+  }
+
+  @Test
+  void tc_10_addStudent_validStudentGroup_BVA3() {
+    Student student = new Student("123", "name", 100, "some@email.com");
+    assertNull(service.addStudent(student));
+  }
+
+  @Test
+  void tc_11_addStudent_invalidStudentGroup_BVA4() {
+    Student student = new Student("123", "name", Integer.MAX_VALUE+1, "some@email.com");
     assertThrows(ValidationException.class, ()->service.addStudent(student));
   }
 }
