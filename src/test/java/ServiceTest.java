@@ -27,6 +27,7 @@ import java.nio.file.Paths;
 import java.util.Collections;
 
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 
 public class ServiceTest {
@@ -64,7 +65,8 @@ public class ServiceTest {
   @Test
   public void tc_1_addStudent_validStudentGroup() {
     Student student = new Student("123", "name", 100, "some@email.com");
-    assertNull(service.addStudent(student));
+    //assertNull(service.addStudent(student));
+    fail();
   }
 
   @Test(expected = ValidationException.class)
