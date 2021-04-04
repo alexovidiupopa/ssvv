@@ -18,6 +18,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 public class AssignmentServiceTest {
 
     private Service service;
@@ -52,11 +56,18 @@ public class AssignmentServiceTest {
 
     @Test
     public void tc_1_addAssignment_validAssignment(){
-        service.addTema(new Tema("123","abc",1,1));
+        assertNull(service.addTema(new Tema("123","abc",1,1)));
     }
 
     @Test(expected = ValidationException.class)
     public void tc_2_addAssignment_invalidAssignment(){
         service.addTema(new Tema("","",1,1));
     }
+
+//    @Test
+//    public void tc_3_addAssignment_alreadyExistingAssignment(){
+//        service.addTema(new Tema("123","abc",1,1));
+//        assertNotNull(service.addTema(new Tema("123","abc",1,1)));
+//        assertEquals(1, service.getAllTeme().spliterator().getExactSizeIfKnown());
+//    }
 }
