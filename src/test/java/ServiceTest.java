@@ -1,10 +1,10 @@
 import domain.Student;
-import org.junit.After;
-import org.junit.Before;
 
 
-import org.junit.Test;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import repository.NotaFileRepository;
 import repository.NotaXMLRepo;
 import repository.StudentFileRepository;
@@ -26,14 +26,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class ServiceTest {
 
   private Service service;
 
-  @Before
+  @BeforeEach
   public void setUp() {
     String filenameStudent = "src/test/resources/fisiere/Studenti.xml";
     String filenameTema = "src/test/resources/fisiere/Teme.xml";
@@ -50,7 +51,7 @@ public class ServiceTest {
     service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
   }
 
-  @After
+  @AfterEach
   public void tearDown() throws IOException {
     Path file = Paths.get("src/test/resources/fisiere/Studenti.xml");
     Files.write(file, Collections.singletonList("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><inbox></inbox>"), StandardCharsets.UTF_8);
@@ -67,10 +68,10 @@ public class ServiceTest {
     assertNull(service.addStudent(student));
   }
 
-  @Test(expected = ValidationException.class)
+  @Test
   public void tc_2_addStudent_invalidStudentGroup() {
     Student student = new Student("123", "name", -552, "some@email.com");
-    service.addStudent(student);
+    assertThrows(ValidationException.class, () -> service.addStudent(student));
   }
   @Test
   public void tc_3_addStudent_validStudentName() {
@@ -78,10 +79,10 @@ public class ServiceTest {
     assertNull(service.addStudent(student));
   }
 
-  @Test(expected = ValidationException.class)
+  @Test
   public void tc_4_addStudent_invalidStudentName() {
     Student student = new Student("123", "", 100, "some@email.com");
-    service.addStudent(student);
+    assertThrows(ValidationException.class, () -> service.addStudent(student));
   }
   @Test
   public void tc_5_addStudent_validStudentEmail() {
@@ -89,10 +90,10 @@ public class ServiceTest {
     assertNull(service.addStudent(student));
   }
 
-  @Test(expected = ValidationException.class)
+  @Test
   public void tc_6_addStudent_invalidStudentEmail() {
     Student student = new Student("123", "name", 100, "");
-    service.addStudent(student);
+    assertThrows(ValidationException.class, () -> service.addStudent(student));
   }
   @Test
   public void tc_7_addStudent_validStudentId() {
@@ -100,10 +101,10 @@ public class ServiceTest {
     assertNull(service.addStudent(student));
   }
 
-  @Test(expected = ValidationException.class)
+  @Test
   public void tc_8_addStudent_invalidStudentId() {
     Student student = new Student("", "name", 100, "some@email.com");
-    service.addStudent(student);
+    assertThrows(ValidationException.class, () -> service.addStudent(student));
   }
 
   @Test
@@ -118,9 +119,9 @@ public class ServiceTest {
     assertNull(service.addStudent(student));
   }
 
-  @Test(expected = ValidationException.class)
+  @Test
   public void tc_11_addStudent_invalidStudentGroup_BVA4() {
     Student student = new Student("123", "name", Integer.MAX_VALUE+1, "some@email.com");
-    service.addStudent(student);
+    assertThrows(ValidationException.class, () -> service.addStudent(student));
   }
 }
