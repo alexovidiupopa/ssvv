@@ -1,2 +1,2 @@
-ServiceTest.class
-AssignmentServiceTest.class
+service\AssignmentServiceTest.class
+service\ServiceTest.class

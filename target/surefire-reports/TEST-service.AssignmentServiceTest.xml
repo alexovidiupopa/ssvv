@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ServiceTest" time="0.055" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="service.AssignmentServiceTest" time="0.2" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\Alex\AppData\Local\Temp\surefire7642424240599182340\surefirebooter2514820723428064822.jar C:\Users\Alex\AppData\Local\Temp\surefire7642424240599182340 2021-04-13T12-16-53_708-jvmRun1 surefire1588808213610492040tmp surefire_05001212625126932366tmp"/>
+    <property name="sun.java.command" value="C:\Users\Alex\AppData\Local\Temp\surefire2381348735377462332\surefirebooter9056091308209520687.jar C:\Users\Alex\AppData\Local\Temp\surefire2381348735377462332 2021-04-13T18-29-11_680-jvmRun1 surefire3880439532183643405tmp surefire_05400657542155041825tmp"/>
     <property name="surefire.test.class.path" value="D:\Facultate\An 3 Sem 2\ssvv\target\test-classes;D:\Facultate\An 3 Sem 2\ssvv\target\classes;C:\Users\Alex\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\Alex\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Alex\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Alex\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\Alex\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\Alex\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Alex"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Alex\AppData\Local\Temp\surefire7642424240599182340\surefirebooter2514820723428064822.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Alex\AppData\Local\Temp\surefire2381348735377462332\surefirebooter9056091308209520687.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_241\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,15 +61,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="tc_7_addStudent_validStudentId" classname="ServiceTest" time="0"/>
-  <testcase name="tc_1_addStudent_validStudentGroup" classname="ServiceTest" time="0.005"/>
-  <testcase name="tc_5_addStudent_validStudentEmail" classname="ServiceTest" time="0.005"/>
-  <testcase name="tc_10_addStudent_validStudentGroup_BVA3" classname="ServiceTest" time="0.005"/>
-  <testcase name="tc_2_addStudent_invalidStudentGroup" classname="ServiceTest" time="0.005"/>
-  <testcase name="tc_9_addStudent_validStudentGroup_BVA2" classname="ServiceTest" time="0.006"/>
-  <testcase name="tc_6_addStudent_invalidStudentEmail" classname="ServiceTest" time="0.004"/>
-  <testcase name="tc_3_addStudent_validStudentName" classname="ServiceTest" time="0.006"/>
-  <testcase name="tc_4_addStudent_invalidStudentName" classname="ServiceTest" time="0.006"/>
-  <testcase name="tc_11_addStudent_invalidStudentGroup_BVA4" classname="ServiceTest" time="0.005"/>
-  <testcase name="tc_8_addStudent_invalidStudentId" classname="ServiceTest" time="0.004"/>
+  <testcase name="tc_5_addAssignment_invalidDescription" classname="service.AssignmentServiceTest" time="0.099"/>
+  <testcase name="tc_3_addAssignment_alreadyExistingAssignment" classname="service.AssignmentServiceTest" time="0.061"/>
+  <testcase name="tc_6_addAssignment_invalidDeadline" classname="service.AssignmentServiceTest" time="0.006"/>
+  <testcase name="tc_4_addAssignment_invalidID" classname="service.AssignmentServiceTest" time="0.007"/>
+  <testcase name="tc_1_addAssignment_validNonExistingAssignment" classname="service.AssignmentServiceTest" time="0.008"/>
+  <testcase name="tc_7_addAssignment_invalidPrimire" classname="service.AssignmentServiceTest" time="0.005"/>
 </testsuite>
