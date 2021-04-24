@@ -5,6 +5,9 @@ import validation.ValidationException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -27,8 +30,9 @@ public class Curent {
      * @return the date when university have started
      */
     public static LocalDate getStartDate() {
-        String filename = "src/main/resources/fisiere/DataInceput.txt";
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
+        String filename = "/fisiere/DataInceput.txt";
+        InputStream is = Curent.class.getResourceAsStream(filename);
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             Arrays.asList();
             String line = bufferedReader.readLine();
             String[] words = line.split(",");
