@@ -27,7 +27,7 @@ public class Curent {
      * @return the date when university have started
      */
     public static LocalDate getStartDate() {
-        String filename = "D:\\Facultate\\An 3 Sem 2\\ssvv\\src\\main\\resources\\fisiere\\DataInceput.txt";
+        String filename = "src/main/resources/fisiere/DataInceput.txt";
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
             Arrays.asList();
             String line = bufferedReader.readLine();
